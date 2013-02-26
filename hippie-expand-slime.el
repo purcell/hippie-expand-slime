@@ -14,6 +14,9 @@
 
 ;;; Code:
 
+(require 'slime)
+(require 'hippie-exp)
+
 (defun try-expand-slime-with-fn (old complete-fn)
   "Completion function for `hippie-expand' which uses one of
 slime's completion functions."
