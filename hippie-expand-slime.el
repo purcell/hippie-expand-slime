@@ -58,7 +58,7 @@ slime's completion functions."
   "Add an optionally-fuzzy slime completion function to the front of
 `hippie-expand-try-functions-list' for the current buffer."
   (interactive)
-  (set (make-local-variable 'hippie-expand-try-functions-list) hippie-expand-try-functions-list)
+  (setq-local hippie-expand-try-functions-list hippie-expand-try-functions-list)
   (add-to-list 'hippie-expand-try-functions-list
                (if fuzzy
                    'try-expand-slime-fuzzy
