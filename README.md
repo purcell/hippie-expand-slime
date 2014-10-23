@@ -43,7 +43,7 @@ the same thing but with the `auto-complete` library.
 
 
 [marmalade]: http://marmalade-repo.org
-[melpa]: http://melpa.milkbox.net
+[melpa]: http://melpa.org
 
 <hr>
 
