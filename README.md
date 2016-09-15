@@ -9,13 +9,13 @@ Installation
 =============
 
 First, ensure `slime` is installed: I recommend
-using packages from [Marmalade][marmalade] or [Melpa][melpa].
+using packages [MELPA][melpa].
 
 You'll need `slime` to be enabled and working, so please consult the
 corresponding documentation is you have any trouble with this.
 
 Next, install `hippie-expand-slime`. If you choose not to use the convenient
-package in [Melpa][melpa] and [Marmalade][marmalade], you'll need to
+package in [MELPA][melpa], you'll need to
 add the directory containing `hippie-expand-slime.el` to your `load-path`, and
 then `(require 'hippie-expand-slime)`.
 
@@ -42,7 +42,6 @@ See also [ac-slime](https://github.com/purcell/ac-slime), which does
 the same thing but with the `auto-complete` library.
 
 
-[marmalade]: http://marmalade-repo.org
 [melpa]: http://melpa.org
 
 <hr>
