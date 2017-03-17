@@ -16,6 +16,14 @@
 
 (require 'slime)
 (require 'hippie-exp)
+(autoload 'slime-fuzzy-completions "slime-fuzzy")
+
+;; Return list of completions for PREFIX using `slime-fuzzy-completions'
+;; returns a flat, sorted list of completion candidates
+(defun hippie-expand-slime-fuzzy-completions (prefix)
+  (let ((completions (slime-fuzzy-completions prefix)))
+    (and completions
+         (mapcar 'car (car completions)))))
 
 (defun try-expand-slime-with-fn (old complete-fn)
   "Completion function for `hippie-expand' which uses one of
@@ -23,10 +31,9 @@ slime's completion functions."
   (if (not old)
       (progn
         (he-init-string (slime-symbol-start-pos) (slime-symbol-end-pos))
-        (if  (not (equal he-search-string ""))
+        (if (not (equal he-search-string ""))
             (setq he-expand-list
-                  (sort (car (funcall complete-fn he-search-string))
-                        'string-lessp))
+                  (funcall complete-fn he-search-string))
           (setq he-expand-list ()))))
   (while (and he-expand-list
 	      (he-string-member (car he-expand-list) he-tried-table))
@@ -50,7 +57,7 @@ slime's completion functions."
 ;;;###autoload
 (defun try-expand-slime-fuzzy (old)
   "Fuzzy slime completion function for `hippie-expand'."
-  (try-expand-slime-with-fn old 'slime-fuzzy-completions))
+  (try-expand-slime-with-fn old 'hippie-expand-slime-fuzzy-completions))
 
 
 ;;;###autoload
